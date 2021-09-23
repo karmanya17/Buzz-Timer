@@ -1,0 +1,77 @@
+body{
+  background-color: #071E3D;
+}
+
+.timer{
+  display:flex;
+  background:#FFFFFF;
+  height:200px;
+  width:200px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items:center;
+  color:#80ED99;
+  font-size:70px;
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Indie Flower', cursive;
+
+}
+.btn{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+/* rgba(188, 237, 243, 0.3) */
+.ani{
+  animation: breathe 1s linear 10;
+}
+@keyframes breathe {
+ 0% {
+  box-shadow: 0 0 0 25px #219897
+ }
+}
+
+/* Animation for Happy Birthday Text */
+.textAni{
+  transform: scale(0.5);
+  animation: scaleCup 2s infinite alternate;
+}
+@keyframes scaleCup {
+  0% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rain Animation */
+
+.confetti {
+  opacity: 0;
+  position: absolute;
+  width: 1rem;
+  height: 1.5rem;
+  transition: 500ms ease;
+  animation: confettiRain 5s 1;
+}
+
+#confetti-wrapper {
+   overflow: hidden !important;
+}
+
+@keyframes confettiRain {
+  0% {
+    opacity: 1;
+    margin-top: -100vh;
+    margin-left: -200px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 100vh;
+    margin-left: 200px;
+  }
+}
