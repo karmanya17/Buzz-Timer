@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="d-flex justify-content-center mt-5 timerflex mt-5">
+          <div id="time" class="timer mt-5"></div>
+      </div>
+      <div class="d-flex justify-content-center mt-5 p-2">
+        <button  id="startBtn" type="button" class="btn btn-lg m-3" name="button" onclick="start()" value="Click">Start</button>
+      </div>
+      <div id="confetti-wrapper"></div>
+    </div>
+
+  <script type="text/javascript">
+      document.body.style.overflow = 'hidden';
+      const timer=document.getElementById("time");
+      const startBtn=document.getElementById("startBtn");
+      var limit=10;
+      var timeLimit=limit;
+
+    // Using CallBack Hell for the Timer Functionality
+    //Created 10 Nested callBacks since the timer is of 10 sec.
+      const start =  function startTimer(){
+        startBtn.disabled=true;
+        timer.innerText="";
+        timer.style="background-color:#FFFFFF;"
+        timer.classList.add("ani");
+        timer.innerText=timeLimit;
+          setTimeout(function(){
+           timer.innerText=(--timeLimit);
+            setTimeout(function(){
+              timer.innerText=(--timeLimit);
+              setTimeout(function(){
+                timer.innerText=(--timeLimit);
+                setTimeout(function(){
+                  timer.innerText=(--timeLimit);
+                  setTimeout(function(){
+                    timer.innerText=(--timeLimit);
+                    setTimeout(function(){
+                      timer.innerText=(--timeLimit);
+                      setTimeout(function(){
+                        timer.innerText=(--timeLimit);
+                        setTimeout(function(){
+                          timer.innerText=(--timeLimit);
+                          setTimeout(function(){
+                            timer.innerText=(--timeLimit);
+                            setTimeout(function(){
+                              timer.style="background-color:#071E3D;"
+                              timer.innerText="HAPPY BIRTHDAY 🥳🎂🎉";
+                              timeLimit=limit;
+                              timer.classList.remove("ani");             //Removing the Breath animation .
+                              timer.classList.add("textAni");            // Adding animation for Happy Birthday Text
+                              rainAnimation();
+                              setTimeout(function(){                     // SetTimeout for 15 sec in whoch the whole celebration animation will happen.
+                                startBtn.disabled=false;                 //For again enabling the button after the rainAnimation is completed using callback.
+                                timer.classList.remove("textAni");       // Removing the animation for Happy Birthday Text
+                              },15000);
+
+                            },1000)
+                          },1000)
+                        },1000)
+                      },1000)
+                    },1000)
+                  },1000)
+                },1000)
+              },1000)
+            },1000)
+          },1000)
+        }
+
+      // Function for Celebration Rain animation
+      var rainAnimation =function rain(){
+          for(i=0; i<100; i++) {
+            // Random rotation
+            var randomRotation = Math.floor(Math.random() * 360);
+              // Random Scale
+            var randomScale = Math.random() * 1;
+            // Random width & height between 0 and viewport
+            var randomWidth = Math.floor(Math.random() * Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
+            var randomHeight =  Math.floor(Math.random() * Math.max(document.documentElement.clientHeight, window.innerHeight || 500));
+
+            // Random animation-delay
+            var randomAnimationDelay = Math.floor(Math.random() * 15);
+            console.log(randomAnimationDelay);
+
+            // Random colors
+            var colors = ['#0CD977', '#FF1C1C', '#FF93DE', '#5767ED', '#FFC61C', '#8497B0']
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Create celebration piece
+            var confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.top=randomHeight + 'px';
+            confetti.style.right=randomWidth + 'px';
+            confetti.style.backgroundColor=randomColor;
+            // confetti.style.transform='scale(' + randomScale + ')';
+            confetti.style.obacity=randomScale;
+            confetti.style.transform='skew(15deg) rotate(' + randomRotation + 'deg)';
+            confetti.style.animationDelay=randomAnimationDelay + 's';
+            document.getElementById("confetti-wrapper").appendChild(confetti);
+
+      }
+
+    }
+    </script>
+
+    <!-- Bootstrap - Script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
