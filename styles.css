@@ -22,6 +22,20 @@ body{
   font-weight: bolder;
   letter-spacing: 2px;
 }
+footer{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+footer >p{
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color:#FFFFFF;
+  font-family: 'Indie Flower', cursive;
+}
 /* rgba(188, 237, 243, 0.3) */
 .ani{
   animation: breathe 1s linear 10;
